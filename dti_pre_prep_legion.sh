@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ROOT="/home/rmjlns1/Scratch/shared"
-RAW="dti_354"
-PREP="dti_250"
+RAW="dti_354"   # The raw directory
+PREP="dti_250" # The output directory
 
 filename='/home/rmjlns1/Scratch/shared/bashscripts/ntag.txt'  # Load NTAGS
 filelines=`cat $filename` #Get each line
@@ -15,11 +15,11 @@ counter=1
 for REM in $filelines ; do # Loop through at the subject level using N-tag	 
 
 
-	if [ "$filelines" -eq "$nfilelines" ]; then
+	if [ "$filelines" -eq "$nfilelines" ]; then  # If there are no DTI files it skips it. 
     	counter=$((counter+1))
     else 
 		cd $ROOT/$RAW/$REM*/scans/ #
-		#dcm2niix ./
+		#dcm2niix ./ # This needs to be ran once. 
 		
 		# checks to see if b2000 exists. If it does NOT then it renames it
 		if [ -e dti_${counter}_b2000.nii ]
@@ -54,7 +54,6 @@ for REM in $filelines ; do # Loop through at the subject level using N-tag
     	else
     		mkdir $ROOT/$PREP/${counter}_dti
 		fi
-		
 	 
 		
 		# copies over the data to the directory 
@@ -78,8 +77,7 @@ for REM in $filelines ; do # Loop through at the subject level using N-tag
 			for ((i=0; i<72; ++i)); do indx="$indx 1\n"; done
 			echo $indx > index.txt
 		fi
-		
-		
+				
 		# generates the acqparams file needed for eddy
 		if [ -e acqparams.txt ]
 		then
