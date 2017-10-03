@@ -13,6 +13,6 @@ for i in {1..250} ; do
 
 	cp -fr $CUT/cut_${i}_mprage.nii.gz $ROOT/freesurfer_subjects/subjects/cut_${i}/mri
 	cd $ROOT/freesurfer_subjects/subjects/cut_${i}/mri
-	mri_convert -c ut_${i}_mprage.nii.gz 001.mgz
+	mri_convert -cut_${i}_mprage.nii.gz 001.mgz
 done
  
