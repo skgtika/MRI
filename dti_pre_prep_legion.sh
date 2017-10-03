@@ -26,6 +26,7 @@ for REM in $filelines ; do # Loop through at the subject level using N-tag
 		then
     		echo "file exist"
 		else
+			#dcm2niix ./ # This needs to be ran once.
     		cp -fr ./*_b2000_*.nii ./dti_${counter}_b2000.nii
     		cp -fr *_b2000_*.bval dti_${counter}_b2000.bval 
     		cp -fr *_b2000_*.bvec dti_${counter}_b2000.bvec
