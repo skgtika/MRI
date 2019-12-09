@@ -1,6 +1,6 @@
 #!/bin/bash
 
-module load fsl/5.0.9
+module load fsl/6.0.0
 source $FSLDIR/etc/fslconf/fsl.sh
 module load xorg-utils/X11R7.7
 module load freesurfer/5.3.0
